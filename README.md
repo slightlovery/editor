@@ -13,7 +13,9 @@ node express + ejs：
 2.将module中的ueditor文件夹中的public复制到项目的public下：（如果报错则需要复制jsp中的某个文件夹过来）
 
 3.在app.js中使用模块
+
 var ueditor = require("ueditor");
+
 //使用模块
 app.use("/ueditor/ue", ueditor(path.join(__dirname, 'public'), function (req, res, next) {
   // ueditor 客户发起上传图片请求
@@ -38,15 +40,18 @@ app.use("/ueditor/ue", ueditor(path.join(__dirname, 'public'), function (req, re
 }));
 
 4.在ueditor.config.js中配置服务器接口路径
+
 // 服务器统一请求接口路径
 , serverUrl: 'http://localhost:3000/ueditor/'+'ue'
 最终上传的图片将会保存在app.js设置的路径下
 
 
 5.接下来就可以在页面中使用ueditor
+
 <div style="width: 1200px;margin: 0 auto">
   <script id="editor" type="text/plain" style="width:1200px;height:500px"></script>
 </div>
+
 接下来就可以在script中进行操作
 //实例化编辑器
 //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
